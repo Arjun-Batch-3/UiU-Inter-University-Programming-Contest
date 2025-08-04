@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve(){
+    int n; cin >> n;
+    n += 1;
+    vector<int> nums(n, 0);
+
+    for(int i=0; i<n; i++){
+        cin >> nums[i];
+    }
+
+    int i=1;
+    while(i<=n){
+        int target = 2*nums[n-1];
+        int swapIdx = n-1;
+
+        for(int j=0; j<=n-2; j++){
+            int temp = nums[j];
+
+            if(temp <= target && temp >= nums[swapIdx]){
+                swapIdx = j;
+            }
+        }
+
+        if(swapIdx == n-1){
+            break;
+        }
+        else{
+            int temp = nums[n-1];
+            nums[n-1] = nums[swapIdx];
+            nums[swapIdx] = temp;
+        }
+        i++;
+    }
+
+
+    // for(int x:nums) cout << x << " ";
+    // cout << endl;
+
+    int ans = accumulate(nums.begin(), nums.end()-1, 0);
+    // cout << "ans: " << ans << endl;
+    cout << ans << endl;
+}
+
+int main(){
+    int t; cin >> t;
+    // int t = 1;
+    while(t--) solve();
+
+    return 0;
+}

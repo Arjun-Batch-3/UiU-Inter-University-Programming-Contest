@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define pr(x) cout << #x << " = " << x << endl
+
+void solve(){
+    int n; cin >> n;
+    string str; cin >> str;
+
+    int oneCnt = 0, zeroCnt = 0;
+
+    for(char ch:str){
+        if(ch == '1') oneCnt++;
+        else zeroCnt++;
+    }
+
+    // pr(oneCnt); pr(zeroCnt);
+
+    // cout << "ans: " << endl;
+    if(oneCnt == 0) cout << str.length() << endl;
+    else{
+        if(oneCnt%2 == 0) cout << 0 << endl;
+        else cout << 1 << endl;
+    }
+}
+
+int main(){
+    int t; cin >> t;
+    // int t = 1;
+    while(t--) solve();
+
+    return 0;
+}

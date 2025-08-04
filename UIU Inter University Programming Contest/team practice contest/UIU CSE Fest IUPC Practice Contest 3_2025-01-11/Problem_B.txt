@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    vector<int>v;
+    for(int i=0; i<t; i++)
+    {
+
+        int n;
+        cin>>n;
+        v.push_back(n);
+    }
+/*
+9
+20
+30
+-70
+-20
+60
+30
+-50
+-100
+20*/
+
+    long long int res=0;
+    long long int max_neg=100000000000000;
+    long long int sum1=0;
+    long long int sum2=0;
+    int f=0;
+    for(int i=0; i<t; i++)
+    {
+        if(v[i]<0)f=1;
+        sum1+=v[i];
+       if(sum1<max_neg)
+       {
+        max_neg=sum1;
+       }
+       //sum1=0;
+
+    }
+   if(f==0)cout<<0<<endl;
+   else
+    cout<<abs(max_neg)<<endl;
+    return 0;
+}

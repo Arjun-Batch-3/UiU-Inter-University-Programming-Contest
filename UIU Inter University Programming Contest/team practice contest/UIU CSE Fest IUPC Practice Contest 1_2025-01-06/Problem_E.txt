@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define endl "\n"
+
+void solve()
+{
+    long long n, k;
+    cin >> n >> k;
+
+    if (k == 1 || n < k)
+    {
+        cout << n << endl;
+        return;
+    }
+
+    long long cnt = 0;
+    while (n > 0)
+    {
+        if (n < k)
+        {
+            cnt += n;
+            break;
+        }
+
+        long long power = 1, current = 0;
+        while (power * k <= n)
+        {
+            power *= k;
+            current++;
+        }
+
+        n -= power;
+        cnt++;
+    }
+
+    cout << cnt << endl;
+}
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int t;
+    cin >> t;
+    while (t--)
+        solve();
+
+    return 0;
+}

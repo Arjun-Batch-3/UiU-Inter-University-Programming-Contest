@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+long long rec(int i, int n, vector<int>& a, bool p, vector<vector<long long>>& dp) {
+    if (i > n) return 0;
+    if (dp[i][p] != -1) return dp[i][p];
+
+    long long skip = a[i] + rec(i + 1, n, a, false, dp);
+    long long take = 0;
+    if (!p) take = 2 * a[i] + rec(i + 1, n, a, true, dp);
+
+    return dp[i][p] = max(skip, take);
+}
+
+void path(int i, int n, vector<int>& a, bool p, vector<vector<long long>>& dp, string& res) {
+    if (i > n) return;
+
+    long long skip = a[i] + rec(i + 1, n, a, false, dp);
+    long long take = 0;
+    if (!p) take = 2 * a[i] + rec(i + 1, n, a, true, dp);
+
+    if (take > skip) {
+        res.push_back('M');
+        path(i + 1, n, a, true, dp, res);
+    } else {
+        res.push_back('O');
+        path(i + 1, n, a, false, dp, res);
+    }
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> a(n + 1);
+    for (int i = 1; i <= n; i++) cin >> a[i];
+
+    vector<vector<long long>> dp(n + 1, vector<long long>(2, -1));
+    long long ans = rec(1, n, a, false, dp);
+
+    string res;
+    path(1, n, a, false, dp, res);
+
+    cout << ans << endl;
+    cout << res << endl;
+
+    return 0;
+}
