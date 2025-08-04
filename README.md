@@ -1,6 +1,6 @@
 # UIU Inter-University Programming Contest 2025
+## Participation Highlights
 
-- 👥 Team: **UiU_Alliance**  
-- 🧑‍💼 Role: **Team Leader**  
-- 🏢 Organized by: Department of CSE, United International University  
-- 🎯 Event: **UIU CSE Fest 2025**
+- Led team **UiU_Alliance** in the **UIU Inter-University Programming Contest 2025**.
+- The contest was organized by the Department of CSE during **UIU CSE Fest 2025**.
+
